@@ -5,5 +5,19 @@
     <string name="false_button">False</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
+    <string-array name="questions">
+        <item>1. The earth is the fourth planet from the sun.</item>
+        <item>2. The planet Venus has no moons.</item>
+        <item>3. Jupiter is composed mostly of iron.</item>
+        <item>4. The sun is a star of average size.</item>
+        <item>5. A lunar eclipse occurs when the sun passes.</item>
+    </string-array>
 
+    <integer-array name="answers">
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+    </integer-array>
 </resources>
