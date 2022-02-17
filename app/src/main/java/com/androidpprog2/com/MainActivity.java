@@ -4,47 +4,64 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    //de
-    private Button trueBtn;
-    private Button falseBtn;
+    private final String[] questions = {"1. The earth is the fourth planet from the sun", "2. The planet Venus has no moons", "3. Jupiter is composed mostly of iron", "4. The sun is a star of average size.", "5. A lunar eclipse occurs when the sun passes"};
+    private final boolean[] answers = {false, true, false, true, false};
+    private int cont = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final TextView question = findViewById(R.id.question);
+        question.setText(questions[cont]);
 
-        final TextView question = (TextView) findViewById(R.id.question);
-
-
-        trueBtn = (Button) findViewById(R.id.true_button);
-        trueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //click true
-                question.setText("The sky is green");
+        Button trueBtn = findViewById(R.id.true_button);
+        trueBtn.setOnClickListener(view -> {
+            //click true
+            if (answers[cont]) {
+                //correct
+                cont++;
+                question.setText(questions[cont]);
                 Toast t = Toast.makeText(MainActivity.this,
                         R.string.correct_toast, Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
                 t.show();
 
-            }
-        });
-        falseBtn = (Button) findViewById(R.id.false_button);
-        falseBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //click false
+            } else {
+                //incorrect
                 Toast t = Toast.makeText(MainActivity.this,
                         R.string.incorrect_toast, Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
                 t.show();
             }
+
+
+        });
+        Button falseBtn = findViewById(R.id.false_button);
+        falseBtn.setOnClickListener(view -> {
+            //click false
+            if (!answers[cont]) {
+                //correct
+                cont++;
+                question.setText(questions[cont]);
+                Toast t = Toast.makeText(MainActivity.this,
+                        R.string.correct_toast, Toast.LENGTH_SHORT);
+                t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+                t.show();
+
+            } else {
+                Toast t = Toast.makeText(MainActivity.this,
+                        R.string.incorrect_toast, Toast.LENGTH_SHORT);
+                t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+                t.show();
+            }
+
         });
 
     }
