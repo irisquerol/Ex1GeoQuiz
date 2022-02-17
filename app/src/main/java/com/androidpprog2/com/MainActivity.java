@@ -11,10 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    //private final String[] questions = {"1. The earth is the fourth planet from the sun", "2. The planet Venus has no moons", "3. Jupiter is composed mostly of iron", "4. The sun is a star of average size.", "5. A lunar eclipse occurs when the sun passes"};
-    //private final boolean[] answers = {false, true, false, true, false};
     private int cont = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
             if (answers[cont] == 1) {
                 //correct
                 cont++;
-                if(cont > 4){
+                if (cont > 4) {
                     question.setText(R.string.finished);
                     falseBtn.setVisibility(View.INVISIBLE);
                     trueBtn.setVisibility(View.INVISIBLE);
-                }else {
+                } else {
                     question.setText(questions[cont]);
                 }
                 Toast t = Toast.makeText(MainActivity.this,
@@ -62,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 //correct
                 cont++;
 
-                if(cont > 4){
+                if (cont > 4) {
                     question.setText(R.string.finished);
                     falseBtn.setVisibility(View.INVISIBLE);
                     trueBtn.setVisibility(View.INVISIBLE);
-                }else {
+                } else {
                     question.setText(questions[cont]);
                 }
                 Toast t = Toast.makeText(MainActivity.this,
@@ -74,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
                 t.show();
 
-
             } else {
+                //incorrect
                 Toast t = Toast.makeText(MainActivity.this,
                         R.string.incorrect_toast, Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
