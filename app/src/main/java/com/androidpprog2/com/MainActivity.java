@@ -30,11 +30,16 @@ public class MainActivity extends AppCompatActivity {
             if (answers[cont] == 1) {
                 //correct
                 cont++;
-                question.setText(questions[cont]);
+                if(cont > 4){
+                    question.setText(R.string.finished);
+                }else {
+                    question.setText(questions[cont]);
+                }
                 Toast t = Toast.makeText(MainActivity.this,
                         R.string.correct_toast, Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
                 t.show();
+
 
             } else {
                 //incorrect
@@ -52,11 +57,17 @@ public class MainActivity extends AppCompatActivity {
             if (answers[cont] == 0) {
                 //correct
                 cont++;
-                question.setText(questions[cont]);
+
+                if(cont > 4){
+                    question.setText(R.string.finished);
+                }else {
+                    question.setText(questions[cont]);
+                }
                 Toast t = Toast.makeText(MainActivity.this,
                         R.string.correct_toast, Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
                 t.show();
+
 
             } else {
                 Toast t = Toast.makeText(MainActivity.this,
