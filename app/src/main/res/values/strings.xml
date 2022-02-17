@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">GeoQuiz</string>
+
     <string name="question_text">Canberra is the capital of Australia.</string>
+
     <string name="true_button">True</string>
     <string name="false_button">False</string>
+    <string name="reset_button">Reset Quiz</string>
+
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
+
     <string name="finished">All questions Done! You have passed the quiz!</string>
+
     <string-array name="questions">
         <item>1. The earth is the fourth planet from the sun.</item>
         <item>2. The planet Venus has no moons.</item>
