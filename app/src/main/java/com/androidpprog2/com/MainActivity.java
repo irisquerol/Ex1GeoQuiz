@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         question.setText(questions[cont]);
 
         Button trueBtn = findViewById(R.id.true_button);
+        Button falseBtn = findViewById(R.id.false_button);
         trueBtn.setOnClickListener(view -> {
             //click true
             if (answers[cont] == 1) {
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
                 cont++;
                 if(cont > 4){
                     question.setText(R.string.finished);
+                    falseBtn.setVisibility(View.INVISIBLE);
+                    trueBtn.setVisibility(View.INVISIBLE);
                 }else {
                     question.setText(questions[cont]);
                 }
@@ -51,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
-        Button falseBtn = findViewById(R.id.false_button);
+
         falseBtn.setOnClickListener(view -> {
             //click false
             if (answers[cont] == 0) {
@@ -60,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(cont > 4){
                     question.setText(R.string.finished);
+                    falseBtn.setVisibility(View.INVISIBLE);
+                    trueBtn.setVisibility(View.INVISIBLE);
                 }else {
                     question.setText(questions[cont]);
                 }
