@@ -51,6 +51,26 @@
                 android:visibility="gone"
                 />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/nextQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:pointerIcon="arrow" />
+
+
+            <Button
+                android:id="@+id/previousQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:pointerIcon="arrow"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

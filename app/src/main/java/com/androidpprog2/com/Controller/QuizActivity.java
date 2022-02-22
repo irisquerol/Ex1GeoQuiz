@@ -23,6 +23,8 @@ public class QuizActivity extends AppCompatActivity {
     private Button trueBtn;
     private Button falseBtn;
     private Button restartBtn;
+    private Button nextQ;
+    private Button previosQ;
 
     private String[] questions_str;
     private int[] answers;
