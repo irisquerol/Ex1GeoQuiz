@@ -10,6 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidpprog2.com.R;
+import com.androidpprog2.com.model.Question;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
     private int count = 0;
@@ -20,19 +24,34 @@ public class QuizActivity extends AppCompatActivity {
     private Button falseBtn;
     private Button restartBtn;
 
-    private String[] questions;
+    private String[] questions_str;
     private int[] answers;
+    private List<Question> questions = new ArrayList<>();
+
+
+    //getTextResID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        questions = getResources().getStringArray(R.array.questions);
+        questions_str = getResources().getStringArray(R.array.questions);
         answers = getResources().getIntArray(R.array.answers);
+        for (int i = 0; i < questions_str.length; i++) {
+            boolean answer;
+            if (answers[i] == 1) {
+                answer = true;
+            } else {
+                answer = false;
+            }
+            Question q = new Question(questions_str[i], answer);
+            questions.add(q);
+        }
 
         question = findViewById(R.id.question);
-        question.setText(questions[count]);
+
+        question.setText(questions.get(count).getQuestion());
 
         trueBtn = findViewById(R.id.true_button);
         falseBtn = findViewById(R.id.false_button);
@@ -40,20 +59,20 @@ public class QuizActivity extends AppCompatActivity {
 
         restartBtn.setOnClickListener(view -> restartQuiz());
 
-        trueBtn.setOnClickListener(view -> verifyCorrectOrIncorrect(answers[count], 1));
+        trueBtn.setOnClickListener(view -> verifyCorrectOrIncorrect(questions.get(count).isCorrect(), true));
 
-        falseBtn.setOnClickListener(view -> verifyCorrectOrIncorrect(answers[count], 0));
+        falseBtn.setOnClickListener(view -> verifyCorrectOrIncorrect(questions.get(count).isCorrect(), false));
 
     }
 
-    private void verifyCorrectOrIncorrect(int answer, int isTrue) {
+    private void verifyCorrectOrIncorrect(boolean answer, boolean isTrue) {
         if (answer == isTrue) {
             //correct
             count++;
             if (count > 4) {
                 showEndAndRestartButton();
             } else {
-                question.setText(questions[count]);
+                question.setText(questions_str[count]);
             }
             showToast(1);
         } else {
@@ -89,7 +108,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void restartQuiz() {
         count = 0;
-        question.setText(questions[count]);
+        question.setText(questions_str[count]);
 
         restartBtn.setVisibility(View.GONE);
 
