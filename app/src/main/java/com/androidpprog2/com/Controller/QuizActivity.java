@@ -1,4 +1,4 @@
-package com.androidpprog2.com;
+package com.androidpprog2.com.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.androidpprog2.com.R;
+
+public class QuizActivity extends AppCompatActivity {
     private int count = 0;
 
     private TextView question;
@@ -64,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
         Toast t;
 
         if (type == 1) {
-            t = Toast.makeText(MainActivity.this,
+            t = Toast.makeText(QuizActivity.this,
                     R.string.correct_toast, Toast.LENGTH_SHORT);
         } else {
-            t = Toast.makeText(MainActivity.this,
+            t = Toast.makeText(QuizActivity.this,
                     R.string.incorrect_toast, Toast.LENGTH_SHORT);
         }
 

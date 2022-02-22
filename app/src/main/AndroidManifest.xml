@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoQuiz">
         <activity
-            android:name=".MainActivity"
+            android:name=".Controller.QuizActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
